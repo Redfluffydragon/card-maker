@@ -1,0 +1,287 @@
+@font-face {
+  font-family: Margetha;
+  src: url(Margetha.otf);
+}
+
+@font-face {
+  font-family: 'Simple script';
+  src: url(Simple_Script.otf)
+}
+
+@font-face {
+  font-family: '1942 Report';
+  src: url(1942.ttf);
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url(FiraCode-Regular.ttf);
+}
+
+body {
+  --page-height: 11in;
+  --page-width: 8.5in;
+  --page-margin: 0.125in;
+
+  --card-width: 2.75in;
+  --card-height: 3.58in;
+  --card-gap: 0;
+  --card-border-width: 1px;
+  --card-border-radius: 0.3125in;
+  --card-border-color: black;
+
+  --text-inset: 0.25in;
+  --font-size: 12pt;
+  --bold: initial;
+  --italic: initial;
+  --underline: initial;
+  --text-align: left;
+  --vert-text-align: flex-start;
+  --line-spacing: 1.15;
+  --text-rotation: 0deg;
+  --font: sans-serif;
+  --text-color: black;
+
+  --inputs-width: 390px;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  margin: 2px 1px; 
+}
+
+h1, h3, p {
+  margin: 12px auto 6px;
+}
+
+#inputsWrapper {
+  position: fixed;
+  height: 100%;
+  width: calc(var(--inputs-width) + 7px);
+  min-width: 177px;
+  max-width: 100%;
+  z-index: 1;
+}
+
+#inputsResizer {
+  position: absolute;
+  height: 100%;
+  width: 7px;
+  top: 0;
+  right: 0;
+  cursor: ew-resize;
+  z-index: 2;
+}
+
+#inputs {
+  padding: 0 11px 50px;
+  grid-gap: 12px;
+  position: fixed;
+  top: 0;
+  width: var(--inputs-width);
+  min-width: 170px;
+  max-width: calc(100% - 7px);
+  height: calc(100% - 1px);
+  box-sizing: border-box;
+  background: white;
+  box-shadow: 5px 0 5px gray;
+  z-index: 1;
+  overflow: auto;
+}
+
+#cardInput {
+  width: calc(100% - 5px);
+  min-height: 100px;
+  min-width: 130px;
+  resize: vertical;
+}
+
+.twelveGap {
+  grid-gap: 12px;
+}
+
+.spanTwo {
+  grid-column: span 2 / auto;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.smallInput {
+  width: 45px;
+}
+
+.smallerInput {
+  width: 50px;
+}
+
+.smallishInput {
+  width: 80px;
+}
+
+.mediumInput {
+  width: 110px;
+}
+
+.smallInfo {
+  font-size: 10pt;
+}
+
+.settingsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.presetOption {
+  padding: 7px;
+  margin-top: 5px;
+  border: 1.5px solid black;
+}
+
+.warnText {
+  color: red;
+}
+
+#pages {
+  position: absolute;
+  right: 0;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, var(--card-width));
+  grid-template-rows: repeat(auto-fit, var(--card-height));
+  gap: calc(var(--card-gap) * 1in);
+  height: var(--page-height);
+  width: var(--page-width);
+  box-sizing: border-box;
+  padding: var(--page-margin);
+  page-break-inside: avoid;
+  font-family: var(--font);
+  line-height: var(--line-spacing);
+  text-decoration: var(--underline);
+  font-style: var(--italic);
+  font-weight: var(--bold);
+  font-size: var(--font-size);
+  color: var(--text-color);
+}
+
+.card {
+  width: var(--card-width);
+  height: var(--card-height);
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  border: var(--card-border-width) solid var(--card-border-color);
+  padding: var(--text-inset);
+  border-radius: var(--card-border-radius);
+  text-align: var(--text-align);
+  align-items: var(--vert-text-align);
+}
+
+.cardText {
+  white-space: pre-line;
+  transform-origin: calc(var(--text-x) + 50%) calc(var(--text-y) + 50%);
+  transform: rotate(var(--text-rotation)) translate(var(--text-x), var(--text-y));
+}
+
+.cardImage {
+  width: calc(var(--card-width) - var(--text-inset) - var(--text-inset));
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CRYPTID STYLES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.cryptidName {
+  display: block;
+  font-size: 16pt;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 3.25in;
+  border: 1.5px solid gray;
+  border-radius: 3px;
+  padding: 3px;
+  margin-top: -3px;
+  box-sizing: border-box;
+}
+
+.cryptidTerritory {
+  font-family: monospace;
+  font-size: 12pt;
+  margin-top: 5px;
+  display: block;
+}
+
+.cryptidStats {
+  position: absolute;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  left: 1.5in;
+  top: 0.35in;
+  width: 2in;
+}
+
+.cryptidStats span {
+  margin-right: 5px;
+}
+
+.cryptidImage {
+  display: block;
+  width: 3.25in;
+  height: 1.5in;
+  border: 1px solid black;
+  margin: 5px 0;
+
+}
+
+.cryptidAbilities {
+  font-size: 12pt;
+  border: 1px solid black;
+  height: 1.38in;
+}
+
+.cryptidAbilities span {
+  display: block;
+  margin: 4px 6px 8px;
+}
+
+
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  .noPrint {
+    display: none;
+  }
+
+  #pages {
+    all: unset;
+  }
+}
+
+.inline {
+  display: inline;
+}
+
+.none {
+  display: none;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.noMarginTop {
+  margin-top: 0;
+}
+
+.noMarginBottom {
+  margin-bottom: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
